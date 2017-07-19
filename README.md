@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/stevenuray/reverse-polish-suray.svg?style=shield&circle-token=1ed061c4a080c416402b9a17b9d3d5bc9b11ad8a)](https://circleci.com/gh/stevenuray/reverse-polish-suray)
+
 # reverse-polish-suray
 Reverse Polish Calculator for On-Site
 
