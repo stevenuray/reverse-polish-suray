@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "reverse/polish/suray"
+require "reverse/polish/suray/console_input_source"
+require "reverse/polish/suray/console_output_source"
+require "reverse/polish/suray/io_combo"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+io_combo = IOCombo.new(ConsoleInputSource.new, ConsoleOutputSource.new)
 
-require "irb"
-IRB.start
+while true do
+  io_combo.process_next_input
+end
+
+

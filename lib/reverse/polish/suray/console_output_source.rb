@@ -1,6 +1,6 @@
 class ConsoleOutputSource
   def output_result(result)
-    STDOUT.puts(result)
+    STDOUT.puts("%f" % result)
   end
 
   def output_error(error)

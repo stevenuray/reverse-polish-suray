@@ -5,7 +5,7 @@ describe ConsoleOutputSource do
   let(:output) { ConsoleOutputSource.new }
 
   describe '#output_result' do
-    let(:test_result) { '3' }
+    let(:test_result) { '3.000000' }
 
     it 'should print result to STDOUT' do
       expect(STDOUT).to receive(:puts).with(test_result)
