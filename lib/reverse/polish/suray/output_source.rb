@@ -7,4 +7,8 @@ module OutputSource
   def output_error(error)
     nil
   end
+
+  def output_info
+    nil
+  end
 end

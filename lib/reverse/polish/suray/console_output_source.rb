@@ -6,4 +6,8 @@ class ConsoleOutputSource
   def output_error(error)
     STDOUT.puts(error)
   end
+
+  def output_info(info)
+    STDOUT.puts(info)
+  end
 end

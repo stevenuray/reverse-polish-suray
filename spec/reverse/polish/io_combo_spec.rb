@@ -29,4 +29,13 @@ describe IOCombo do
       end
     end
   end
+
+  describe '#output_info' do
+    let(:test_info) { 'Test Info!' }
+
+    it 'passes info to @output' do
+      expect(output).to receive(:output_info).with(test_info)
+      io_combo.output_info(test_info)
+    end
+  end
 end

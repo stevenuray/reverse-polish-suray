@@ -25,6 +25,11 @@ class IOCombo
     parsed_input.numbers[0].send(parsed_input.operator.to_sym, parsed_input.numbers[1])
   end
 
+  #TODO consider use of delegate here
+  def output_info(info)
+    @output.output_info(info)
+  end
+
   private
 
   #TODO consider passing in validator, parser for more dependency inversion here
