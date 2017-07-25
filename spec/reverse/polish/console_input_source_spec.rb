@@ -13,7 +13,7 @@ describe ConsoleInputSource do
 
     context 'with valid input' do
       it 'should return that input' do
-        expect(input.read_next_line).to eq test_line
+        expect(input.read_next_input).to eq test_line
       end
     end
 
@@ -21,7 +21,7 @@ describe ConsoleInputSource do
       let(:test_line) { 'q' }
 
       it 'should return exit_command symbol' do
-        expect(input.read_next_line).to eq :exit_command
+        expect(input.read_next_input).to eq :exit_command
       end
     end
   end

@@ -7,6 +7,14 @@ class ParsedInput
     @numbers[0].send(@operator.to_sym, @numbers[1])
   end
 
+  def complete_command?
+    if numbers.length == 2
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def initialize(numbers, operator)

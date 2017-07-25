@@ -1,7 +1,7 @@
 class ConsoleInputSource
   EXIT_COMMANDS = [ 'q' ]
 
-  def read_next_line
+  def read_next_input
     next_line = ''
 
     #Catching Ctrl + D end of input indicator with this begin/rescue block

@@ -3,6 +3,8 @@ require "reverse/polish/suray/console_output_source"
 require "reverse/polish/suray/explanation_presenter"
 require "reverse/polish/suray/input_parser"
 require "reverse/polish/suray/input_validator"
+#TODO remove
+require "pry"
 
 #TODO consider refactoring this to be less console specific and more generic
 class ConsoleController
@@ -22,23 +24,43 @@ class ConsoleController
   end
 
   #TODO consider enforcing an input format like UTF-8 etc
+  #TODO general cleanup here
   def process_next_input
-    next_line = @input.read_next_line
+    next_input = @input.read_next_input
 
-    if next_line == :exit_command
+    if next_input == :exit_command
       return :exit_command
     end
 
     #TODO consider putting this in another function
     begin
-      InputValidator.new(next_line).validate
+      InputValidator.new(next_input).validate
     rescue StandardError => e
       @output.output_error(e)
       return
     end
 
-    parsed_input = InputParser.new(next_line).input
-    @output.output_result(parsed_input.calculate_answer)
+    if input_complete?(next_input)
+      process_new_answer(InputParser.new(next_input).input)
+    else
+      if @last_answer
+        input = InputParser.new(next_input).input
+        process_new_answer(ParsedInput.new(input.numbers.push(@last_answer), input.operator))
+      else
+        @output.output_error("#{next_input} is not a complete calculation!")
+      end
+    end
+  end
+
+  #TODO generally rethink this and it's usages
+  def process_new_answer(parsed_input)
+    @last_answer = parsed_input.calculate_answer
+    @output.output_result(@last_answer)
+  end
+
+  #TODO consider replacing this function with a builder
+  def input_complete?(next_input)
+    InputParser.new(next_input).input.complete_command?
   end
 
   #TODO consider use of delegate here

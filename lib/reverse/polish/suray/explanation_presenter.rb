@@ -27,13 +27,19 @@ class ExplanationPresenter
        'Watching Elon Musk videos, questioning life choices...',
        'Hiding from Lumbergh...',
        'Filling out TPS report ASAP...',
-       'Over-promising, under-delivering...']
+       'Over-promising, under-delivering...',
+       'Creating ICO on Ethereum, receiving millions of dollars...']
     end
 
     def random_fake_initialization_message
       msgs = ExplanationPresenter.fake_initialization_messages
       rand_range = 0..msgs.length-1
       msgs[Random.new.rand(rand_range)]
+    end
+
+    #TODO fill out and use
+    def random_unique_fake_init_messages
+      nil
     end
 
     def format
