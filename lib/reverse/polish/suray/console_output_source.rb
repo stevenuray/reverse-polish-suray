@@ -1,4 +1,6 @@
 class ConsoleOutputSource
+  FAKE_INIT_MESSAGES = 3
+
   def output_result(result)
     STDOUT.puts("%f" % result)
   end
@@ -20,17 +22,12 @@ class ConsoleOutputSource
     output_lines([slashes, ExplanationPresenter.greeting, slashes, ''])
   end
 
-  #TODO break this into smaller functions
   def output_initialization
-    msgs = ExplanationPresenter.fake_initialization_messages
-    rand_range = 0..msgs.length-1
-    random_init_messages = [' -'+msgs[Random.new.rand(rand_range)], ' -'+msgs[Random.new.rand(rand_range)]]
-    init_lines = ['***INITIALIZING***', random_init_messages].flatten
+    init_lines = ['***INITIALIZING***', build_fake_init_messages].flatten
     slashes = build_slashes(find_longest_string(init_lines))
     init_lines.push(slashes)
     init_lines.unshift(slashes)
     init_lines.push('')
-
     output_lines(init_lines)
   end
 
@@ -46,12 +43,14 @@ class ConsoleOutputSource
 
   def build_slashes(string)
     slashes = ''
-
-    string.length.times do
-      slashes << '-'
-    end
-
+    string.length.times { slashes << '-' }
     slashes
+  end
+
+  def build_fake_init_messages
+    random_init_messages = []
+    FAKE_INIT_MESSAGES.times { random_init_messages << ' -'+ExplanationPresenter.random_fake_initialization_message }
+    random_init_messages
   end
 
   def find_longest_string(strings)
@@ -59,5 +58,4 @@ class ConsoleOutputSource
     strings.each { |string| longest_string = string if string.length > longest_string.length }
     longest_string
   end
-
 end

@@ -30,6 +30,12 @@ class ExplanationPresenter
        'Over-promising, under-delivering...']
     end
 
+    def random_fake_initialization_message
+      msgs = ExplanationPresenter.fake_initialization_messages
+      rand_range = 0..msgs.length-1
+      msgs[Random.new.rand(rand_range)]
+    end
+
     def format
       '[number] [number] [operator]'
     end
