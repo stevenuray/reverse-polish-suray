@@ -1,7 +1,7 @@
-require 'reverse/polish/suray/input_validation'
-require 'reverse/polish/suray/operator_exception'
+require 'reverse/polish/suray/validation/operator_exception'
 require 'bigdecimal'
 require 'pry'
+require 'reverse/polish/suray/validation/input_validation'
 
 class InputValidator
   def validate
@@ -30,6 +30,7 @@ class InputValidator
       raise ArgumentError.new("No numbers provided.")
     end
 
+    #TODO deal with exceptions that will be thrown if words are input to the program
     numbers_strings.each { |n| Float(n) }
   end
 

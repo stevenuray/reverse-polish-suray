@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'reverse/polish/suray/console_output_source'
+require 'reverse/polish/suray/output_source/console_output_source'
 
 describe ConsoleOutputSource do
   let(:output) { ConsoleOutputSource.new }

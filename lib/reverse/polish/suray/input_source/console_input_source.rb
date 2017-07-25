@@ -1,4 +1,8 @@
+require 'reverse/polish/suray/input_source/input_source'
+
 class ConsoleInputSource
+  include InputSource
+
   EXIT_COMMANDS = [ 'q' ]
 
   def read_next_input

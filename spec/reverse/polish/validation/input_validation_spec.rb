@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'reverse/polish/suray/input_validation'
+require 'reverse/polish/suray/validation/input_validation'
 
 describe InputValidation do
   describe '#input_valid?' do

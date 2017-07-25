@@ -1,6 +1,6 @@
 require 'spec_helper'
-require 'reverse/polish/suray/input_validator'
-require 'reverse/polish/suray/operator_exception'
+require 'reverse/polish/suray/validation/input_validator'
+require 'reverse/polish/suray/validation/operator_exception'
 
 describe InputValidator do
   let(:input) { '1 2 +' }

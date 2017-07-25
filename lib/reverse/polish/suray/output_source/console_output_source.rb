@@ -1,4 +1,8 @@
+require 'reverse/polish/suray/output_source/output_source'
+
 class ConsoleOutputSource
+  include OutputSource
+
   FAKE_INIT_MESSAGES = 3
 
   def output_result(result)

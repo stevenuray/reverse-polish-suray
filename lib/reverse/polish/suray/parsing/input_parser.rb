@@ -1,4 +1,4 @@
-require 'reverse/polish/suray/ParsedInput'
+require 'reverse/polish/suray/parsing/parsed_input'
 
 class InputParser
 

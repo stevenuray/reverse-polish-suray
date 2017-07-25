@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'reverse/polish/suray/input_parser'
+require 'reverse/polish/suray/parsing/input_parser'
 require 'bigdecimal'
 
 describe InputParser do

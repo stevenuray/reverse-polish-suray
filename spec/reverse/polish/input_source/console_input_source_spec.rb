@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'reverse/polish/suray/console_input_source'
+require 'reverse/polish/suray/input_source/console_input_source'
 
 describe ConsoleInputSource do
   let(:input) { ConsoleInputSource.new }
