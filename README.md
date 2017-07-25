@@ -9,6 +9,7 @@ Reverse Polish Calculator for On-Site
 ## Architectural
 ## Trade-Offs
 ## CircleCI
+## Known Issues
 
 CircleCI was used in this project for these reasons:
 * To automatically verify this project worked on machines other than my development machine. 
