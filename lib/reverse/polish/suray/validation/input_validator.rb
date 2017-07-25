@@ -4,6 +4,8 @@ require 'pry'
 require 'reverse/polish/suray/validation/input_validation'
 
 class InputValidator
+  #TODO consider moving this to a single point of configuration and referencing
+  SEPARATOR = ' '
   def validate
     validate_operator
     validate_numbers
@@ -22,7 +24,7 @@ class InputValidator
 
   def validate_numbers
     #TODO pull separator from a single definition and reference
-    numbers_strings = @input.split(' ')
+    numbers_strings = @input.split(SEPARATOR)
     numbers_strings.pop
 
     #TODO reconsider decision to raise ArgumentError here instead of a custom exception

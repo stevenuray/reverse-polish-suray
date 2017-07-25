@@ -3,6 +3,7 @@ require 'reverse/polish/suray/input_source/input_source'
 class ConsoleInputSource
   include InputSource
 
+  #TODO consider moving this to a single point of configuration and referencing
   EXIT_COMMANDS = [ 'q' ]
 
   def read_next_input
