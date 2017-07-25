@@ -22,8 +22,11 @@ class ExplanationPresenter
       ['Building additional pylons...',
        'Performing rain dance...',
        'Sending bitcoins to ransomsware address...',
-       'Complying with secret NSA requirements...',
-       'Shoehorning machine learning into this project somehow...']
+       'Complying with secret NSA mandates...',
+       'Shoehorning machine learning into this project somehow...',
+       'Watching Elon Musk videos, questioning life choices...',
+       'Hiding from Lumbergh...',
+       'Filling out TPS report ASAP...']
     end
   end
 
