@@ -7,9 +7,9 @@ require "reverse/polish/suray/input_validator"
 #TODO consider refactoring this to be less console specific and more generic
 class ConsoleController
   def execute
-    display_greeting
-    display_initialization
-    display_examples
+    @output.output_greeting
+    @output.output_initialization
+    @output.output_examples
 
     #TODO reconsider this loop
     while true do
@@ -18,7 +18,7 @@ class ConsoleController
       end
     end
 
-    @output.output_info(ExplanationPresenter.goodbye)
+    @output.output_goodbye
   end
 
   #TODO consider enforcing an input format like UTF-8 etc
@@ -57,50 +57,5 @@ class ConsoleController
   def initialize(input, output)
     @input = input
     @output = output
-  end
-
-  #TODO move this into a helper or presenter?
-  def build_slashes(string)
-    slashes = ''
-
-    string.length.times do
-      slashes << '-'
-    end
-
-    slashes
-  end
-
-  def find_longest_string(strings)
-    longest_string = ''
-    strings.each { |string| longest_string = string if string.length > longest_string.length }
-    longest_string
-  end
-
-  #TODO DRY this up
-  def display_greeting
-    slashes = build_slashes(ExplanationPresenter.greeting)
-
-    greeting_lines = [slashes, ExplanationPresenter.greeting, slashes, '']
-
-    greeting_lines.each { |line| @output.output_info(line) }
-  end
-
-  #TODO break this into smaller functions
-  def display_initialization
-    msgs = ExplanationPresenter.fake_initialization_messages
-    rand_range = 0..msgs.length-1
-    random_init_messages = [' -'+msgs[Random.new.rand(rand_range)], ' -'+msgs[Random.new.rand(rand_range)]]
-    init_lines = ['***INITIALIZING***', random_init_messages].flatten
-    slashes = build_slashes(find_longest_string(init_lines))
-    init_lines.push(slashes)
-    init_lines.unshift(slashes)
-    init_lines.push('')
-
-    init_lines.each { |line| @output.output_info(line) }
-  end
-
-  def display_examples
-    example_lines = ['Examples:', ExplanationPresenter.examples, ''].flatten
-    example_lines.each { |line| @output.output_info(line) }
   end
 end

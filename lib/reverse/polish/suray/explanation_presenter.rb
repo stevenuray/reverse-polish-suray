@@ -26,7 +26,12 @@ class ExplanationPresenter
        'Shoehorning machine learning into this project somehow...',
        'Watching Elon Musk videos, questioning life choices...',
        'Hiding from Lumbergh...',
-       'Filling out TPS report ASAP...']
+       'Filling out TPS report ASAP...',
+       'Over-promising, under-delivering...']
+    end
+
+    def format
+      '[number] [number] [operator]'
     end
   end
 
