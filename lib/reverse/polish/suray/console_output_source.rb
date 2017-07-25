@@ -36,7 +36,8 @@ class ConsoleOutputSource
   end
 
   def output_goodbye
-    output_info(ExplanationPresenter.goodbye)
+    slashes = build_slashes(ExplanationPresenter.goodbye)
+    output_lines([slashes, ExplanationPresenter.goodbye, slashes])
   end
 
   private
