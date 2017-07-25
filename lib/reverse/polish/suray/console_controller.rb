@@ -38,13 +38,7 @@ class ConsoleController
     end
 
     parsed_input = InputParser.new(next_line).input
-    @output.output_result(calculate_answer(parsed_input))
-  end
-
-  def calculate_answer(parsed_input)
-    #TODO reconsider use of send here
-    #TODO abstract operators to classes that implement an interface?
-    parsed_input.numbers[0].send(parsed_input.operator.to_sym, parsed_input.numbers[1])
+    @output.output_result(parsed_input.calculate_answer)
   end
 
   #TODO consider use of delegate here
