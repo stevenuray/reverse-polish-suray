@@ -17,4 +17,8 @@ CircleCI was used in this project for these reasons:
 
 # End-User Usage
 
+## Install
+
+## Usage
+
 # Development Environment Setup
