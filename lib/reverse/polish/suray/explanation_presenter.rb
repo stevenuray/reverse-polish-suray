@@ -38,8 +38,17 @@ class ExplanationPresenter
     end
 
     #TODO fill out and use
-    def random_unique_fake_init_messages
-      nil
+    def random_unique_fake_init_messages(count)
+      msgs = []
+      until msgs.count == count
+        next_msg = random_fake_initialization_message
+        if(msgs.include? next_msg)
+          next
+        else
+          msgs << next_msg
+        end
+      end
+      msgs
     end
 
     def format

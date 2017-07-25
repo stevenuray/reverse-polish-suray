@@ -3,15 +3,11 @@ require "reverse/polish/suray/console_output_source"
 require "reverse/polish/suray/explanation_presenter"
 require "reverse/polish/suray/input_parser"
 require "reverse/polish/suray/input_validator"
-#TODO remove
-require "pry"
 
 #TODO consider refactoring this to be less console specific and more generic
 class ConsoleController
   def execute
-    @output.output_greeting
-    @output.output_initialization
-    @output.output_examples
+    initial_messages
 
     #TODO reconsider this loop
     while true do
@@ -52,10 +48,17 @@ class ConsoleController
     end
   end
 
-  #TODO generally rethink this and it's usages
-  def process_new_answer(parsed_input)
-    @last_answer = parsed_input.calculate_answer
-    @output.output_result(@last_answer)
+  private
+
+  def initialize(input, output)
+    @input = input
+    @output = output
+  end
+
+  def initial_messages
+    @output.output_greeting
+    @output.output_initialization
+    @output.output_examples
   end
 
   #TODO consider replacing this function with a builder
@@ -63,15 +66,9 @@ class ConsoleController
     InputParser.new(next_input).input.complete_command?
   end
 
-  #TODO consider use of delegate here
-  def output_info(info)
-    @output.output_info(info)
-  end
-
-  private
-
-  def initialize(input, output)
-    @input = input
-    @output = output
+  #TODO generally rethink this and it's usages
+  def process_new_answer(parsed_input)
+    @last_answer = parsed_input.calculate_answer
+    @output.output_result(@last_answer)
   end
 end

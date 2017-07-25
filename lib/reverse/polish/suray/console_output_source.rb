@@ -49,9 +49,7 @@ class ConsoleOutputSource
   end
 
   def build_fake_init_messages
-    random_init_messages = []
-    FAKE_INIT_MESSAGES.times { random_init_messages << ' -'+ExplanationPresenter.random_fake_initialization_message }
-    random_init_messages
+    ExplanationPresenter.random_unique_fake_init_messages(FAKE_INIT_MESSAGES).map { |m| ' -' + m }
   end
 
   def find_longest_string(strings)
