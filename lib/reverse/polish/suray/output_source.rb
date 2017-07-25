@@ -1,5 +1,5 @@
 module OutputSource
-  #TODO fill out
+  #TODO fill out with NotImplementedErrors, add tests for them, include in ConsoleInputSource
   def output_result(result)
     nil
   end
