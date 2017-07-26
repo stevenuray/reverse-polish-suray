@@ -15,6 +15,8 @@ CircleCI was used in this project for these reasons:
 * To demonstrate some ability to work with modern CI/CD pipelines.
 
 ## Known Issues 
+* This project was initially intended to be available as a Gem for other ruby projects to use, however this functionality was not completed and there are a number of currently useless files related to this, such as `gemspec`, `version.rb`, etc. 
+* The `reverse/polish/suray/` file structure is currently overly nested, but is related to the initial goal of making the project available as a Gem.
 
 # End-User Usage
 
