@@ -40,7 +40,8 @@ This decision has the following disadvantages:
 ## Known Issues 
 * This project was initially intended to be available as a Gem for other ruby projects to use, however this functionality was not completed and there are a number of currently useless files related to this, such as `gemspec`, `version.rb`, etc. 
 * The `reverse/polish/suray/` file structure is currently overly nested, but is related to the initial goal of making the project available as a Gem.
-* Running `ruby bin/rpn_suray` from the project root will cause unnecessary `+ is not a valid operator.` error messages. This is due to a relative path issue in the Operator module. The project must be run from within the `/bin/` folder, like `ruby rpn_suray`. 
+* Running `ruby bin/rpn_suray` from the project root will cause unnecessary `+ is not a valid operator.` error messages. This is due to a relative path issue in the Operator module. The project must be run from within the `/bin/` folder, like `ruby rpn_suray`.
+* A number of smaller issues exist that were not resolved due to time constraints. These can be found by looking for `#TODO` items in the project. Most of them do not affect end users, but can make the code unnecessarily difficult for developers to work with. 
 
 # End-User Usage
 
