@@ -37,7 +37,6 @@ class ExplanationPresenter
       msgs[Random.new.rand(rand_range)]
     end
 
-    #TODO fill out and use
     def random_unique_fake_init_messages(count)
       msgs = []
       until msgs.count == count
@@ -55,5 +54,4 @@ class ExplanationPresenter
       '[number] [number] [operator]'
     end
   end
-
 end

@@ -17,7 +17,6 @@ module Operator
 
     private
 
-    #TODO figure out way to do this only one time
     def load_operator_files
       #TODO project relative path here
       Dir['../lib/reverse/polish/suray/operator/*.rb'].each { |file| require file }
