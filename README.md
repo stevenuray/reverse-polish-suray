@@ -14,6 +14,16 @@ CircleCI was used in this project for these reasons:
 * To automatically verify master has all of it's automated tests passing.
 * To demonstrate some ability to work with modern CI/CD pipelines.
 
+## Docker 
+Docker was used in this project for these reasons:
+* To attempt to make end user install and use as easy as possible.
+* To make supporting a wide variety of user operating systems easier. 
+* To reduce potential for conflict between a user's environment and a developer's environment.
+
+This decision has the following disadvantages:
+* Potentially unecessary complexity and functionality.
+* Potential for a broken docker container but a working Ruby program, or vice versa. 
+
 ## Known Issues 
 * This project was initially intended to be available as a Gem for other ruby projects to use, however this functionality was not completed and there are a number of currently useless files related to this, such as `gemspec`, `version.rb`, etc. 
 * The `reverse/polish/suray/` file structure is currently overly nested, but is related to the initial goal of making the project available as a Gem.
