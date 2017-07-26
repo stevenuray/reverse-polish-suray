@@ -64,6 +64,31 @@ Prerequisites:
 3. Enter the `/bin/` directory of this repo with a command line tool. 
 4. Enter `ruby rpn_suray` to run the program.
 
+## Example Use
+
+Addition, integer numbers:
+`1 2 +`
+`> 3`
+
+Subtraction, decimal numbers:
+`3.14 2 -`
+`> 1.14`
+
+Multiplication, negative numbers:
+`-3 2 *`
+`> -6`
+
+Division, repeating decimal numbers.
+`1 3 /`
+`> 0.3333333333`
+
+The answer from the last entry can also be used as the second number in the next entry. 
+
+`1 2 +`
+`> 3`
+`2 -`
+`- 1`
+
 ## Configuration
 
 The following environment variables may be set by the user to override default settings:
