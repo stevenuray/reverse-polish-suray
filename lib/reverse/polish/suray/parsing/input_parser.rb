@@ -8,7 +8,7 @@ class InputParser
 
   def convert_input_string
     numbers = @input_string.split(RPNConfig.input_separator)
-    operator = numbers.pop
+    operator = Operator.symbols_to_operators[numbers.pop]
     numbers = numbers.map { |n| BigDecimal.new(n) }
     ParsedInput.new(numbers, operator)
   end

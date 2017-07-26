@@ -2,6 +2,7 @@ require 'reverse/polish/suray/validation/operator_error'
 require 'reverse/polish/suray/validation/input_validation'
 require 'reverse/polish/suray/rpn_config'
 require 'reverse/polish/suray/validation/number_error'
+require 'reverse/polish/suray/operator/operator'
 require 'bigdecimal'
 
 class InputValidator
@@ -19,7 +20,7 @@ class InputValidator
 
   def validate_operator(input)
     operator = input.split(RPNConfig.input_separator).last
-    unless RPNConfig.valid_operators.include? operator
+    unless Operator.operator_symbols.include? operator
       raise OperatorError.new("#{operator} is not a valid operator.")
     end
   end

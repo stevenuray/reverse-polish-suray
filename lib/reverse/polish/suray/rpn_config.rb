@@ -8,14 +8,6 @@ class RPNConfig
       ENV['RPN_INPUT_SEPARATOR'] || ' '
     end
 
-    def valid_operators
-      if ENV['RPN_VALID_OPERATORS']
-        ENV['RPN_VALID_OPERATORS'].split(ENV_ARRAY_SEPARATOR)
-      else
-        ['+', '-', '*', '/']
-      end
-    end
-
     def decimal_precision
       if ENV['RPN_DECIMAL_PRECISION']
         ENV['RPN_DECIMAL_PRECISION'].to_i

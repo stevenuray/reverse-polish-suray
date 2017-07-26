@@ -19,7 +19,6 @@ class ConsoleController
   end
 
   #TODO consider enforcing an input format like UTF-8 etc
-  #TODO general cleanup here
   def process_next_input
     next_input = @input.read_next_input
 
@@ -27,7 +26,6 @@ class ConsoleController
       return :exit_command
     end
 
-    #TODO clean this up
     validation = @validator.validate(next_input)
     unless validation.response == :valid_input
       @output.output_error(validation.response)
@@ -65,7 +63,6 @@ class ConsoleController
     InputParser.new(next_input).input.complete_command?
   end
 
-  #TODO generally rethink this and it's usages
   def process_new_answer(parsed_input)
     @last_answer = parsed_input.calculate_answer
     @output.output_result(@last_answer)

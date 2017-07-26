@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'reverse/polish/suray/parsing/input_parser'
+require 'reverse/polish/suray/operator/addition'
 require 'bigdecimal'
 
 describe InputParser do
@@ -12,6 +13,6 @@ describe InputParser do
   end
 
   it 'should convert input operator correctly' do
-    expect(parsed_input.operator).to eq '+'
+    expect(parsed_input.operator).to eq Operator::Addition
   end
 end

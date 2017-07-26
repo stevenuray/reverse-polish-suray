@@ -1,8 +1,9 @@
 require 'spec_helper'
 require 'reverse/polish/suray/parsing/parsed_input'
+require 'reverse/polish/suray/operator/addition'
 
 describe ParsedInput do
-  let(:operator) { '+' }
+  let(:operator) { Operator::Addition }
   let(:parsed_input) { ParsedInput.new([2, 1], operator) }
 
   describe '#calculate_answer' do
