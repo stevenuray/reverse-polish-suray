@@ -49,4 +49,13 @@ Prerequisites:
 3. Enter the `/bin/` directory of this repo with a command line tool. 
 4. Enter `ruby rpn_suray` to run the program.
 
-# Development Environment Setup
+# Developer Usage
+
+## Running Tests
+At the repo's root folder on your local machine: `rspec`.
+Remember to ensure any environment variables you set to configure the application are unset when testing!
+
+## Creating/Use Development Docker Image
+At the repo's root folder on your local machine:
+1. Build image with: `docker build -t 'rpn_development:latest' .`
+2. Run image with: `docker run -it rpn_development:latest`
