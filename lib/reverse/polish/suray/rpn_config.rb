@@ -2,6 +2,7 @@
 class RPNConfig
   ENV_ARRAY_SEPARATOR = ','
 
+  #TODO ternary operators?
   class << self
     def input_separator
       ENV['RPN_INPUT_SEPARATOR'] || ' '
@@ -16,7 +17,11 @@ class RPNConfig
     end
 
     def decimal_precision
-      ENV['RPN_DECIMAL_PRECISION'] || 10
+      if ENV['RPN_DECIMAL_PRECISION']
+        ENV['RPN_DECIMAL_PRECISION'].to_i
+      else
+        10
+      end
     end
 
     def exit_commands

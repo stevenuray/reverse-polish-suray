@@ -6,6 +6,11 @@ WORKDIR /app
 ADD . /app
 RUN bundle install
 
+ENV RPN_INPUT_SEPARATOR=" "
+ENV RPN_VALID_OPERATORS="+,-,*,/"
+ENV RPN_DECIMAL_PRECISION="10"
+ENV RPN_EXIT_COMMANDS="q, exit"
+
 RUN rspec
 
 ENTRYPOINT [ "ruby", "bin/rpn_suray" ]

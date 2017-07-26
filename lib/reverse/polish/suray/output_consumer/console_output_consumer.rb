@@ -1,5 +1,7 @@
 require 'reverse/polish/suray/output_consumer/output_consumer'
 require 'reverse/polish/suray/rpn_config'
+#TODO remove
+require 'pry'
 
 class ConsoleOutputConsumer
   include OutputConsumer
@@ -17,6 +19,8 @@ class ConsoleOutputConsumer
       STDOUT.puts(result.to_i)
     else
       rounded_result = result.round(precision)
+      #TODO remove
+      #binding.pry
       #TODO clarify this
       STDOUT.puts("%.#{ precision }g" % ("%.#{ precision }f" % rounded_result))
     end
