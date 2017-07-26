@@ -1,7 +1,7 @@
-require "reverse/polish/suray/explanation_presenter"
-require "reverse/polish/suray/parsing/input_parser"
-require "reverse/polish/suray/validation/input_validator"
-require "reverse/polish/suray/validation/input_validation"
+require 'reverse/polish/suray/explanation_presenter'
+require 'reverse/polish/suray/parsing/input_parser'
+require 'reverse/polish/suray/validation/input_validator'
+require 'reverse/polish/suray/validation/input_validation'
 
 #TODO consider refactoring this to be less console specific and more generic
 class ConsoleController

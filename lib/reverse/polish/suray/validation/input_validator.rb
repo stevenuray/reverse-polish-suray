@@ -30,13 +30,13 @@ class InputValidator
     numbers_strings.pop
 
     if numbers_strings.count == 0
-      raise ArgumentError.new("No numbers provided.")
+      raise ArgumentError.new('No numbers provided.')
     end
 
     begin
       numbers_strings.map! { |n| Float(n) }
     rescue StandardError
-      raise NumberError.new("Invalid number!")
+      raise NumberError.new('Invalid number!')
     end
   end
 end

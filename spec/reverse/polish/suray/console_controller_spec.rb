@@ -5,8 +5,8 @@ require 'reverse/polish/suray/validation/input_validation'
 require 'bigdecimal'
 
 describe ConsoleController do
-  let(:input) { double("input") }
-  let(:output) { double("output") }
+  let(:input) { double('input') }
+  let(:output) { double('output') }
   let(:validator) { InputValidator.new }
   let(:controller) { ConsoleController.new(input, output, validator) }
 
@@ -43,7 +43,7 @@ describe ConsoleController do
     end
 
     context 'with error from validator' do
-      let(:validator) { double("validator") }
+      let(:validator) { double('validator') }
       let(:validation) { InputValidation.new(next_input, NumberError) }
 
       before(:each) do

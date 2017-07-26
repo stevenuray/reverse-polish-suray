@@ -21,7 +21,7 @@ describe ConsoleOutputConsumer do
       let(:test_result) { BigDecimal.new(3.14, 3) }
 
       it 'should print result to STDOUT' do
-        expect(STDOUT).to receive(:puts).with("3.14")
+        expect(STDOUT).to receive(:puts).with('3.14')
         output.output_result(test_result)
       end
     end
@@ -30,7 +30,7 @@ describe ConsoleOutputConsumer do
       let(:test_result) { BigDecimal.new(-3.14, 3) }
 
       it 'should print result to STDOUT' do
-        expect(STDOUT).to receive(:puts).with("-3.14")
+        expect(STDOUT).to receive(:puts).with('-3.14')
         output.output_result(test_result)
       end
     end

@@ -1,4 +1,4 @@
-require "reverse/polish/suray/version"
+require 'reverse/polish/suray/version'
 
 module Reverse
   module Polish

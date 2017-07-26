@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "reverse/polish/suray/console_controller"
-require "reverse/polish/suray/input_source/console_input_source"
-require "reverse/polish/suray/output_consumer/console_output_consumer"
-require "reverse/polish/suray/validation/input_validator"
+require 'bundler/setup'
+require 'reverse/polish/suray/console_controller'
+require 'reverse/polish/suray/input_source/console_input_source'
+require 'reverse/polish/suray/output_consumer/console_output_consumer'
+require 'reverse/polish/suray/validation/input_validator'
 
 controller = ConsoleController.new(ConsoleInputSource.new, ConsoleOutputConsumer.new, InputValidator.new)
 controller.execute
