@@ -5,11 +5,11 @@ require 'reverse/polish/suray/validation/number_error'
 
 describe InputValidator do
   let(:input) { '1 2 +' }
-  let(:validator) { InputValidator.new(input) }
+  let(:validator) { InputValidator.new }
 
   describe '#validate' do
     context 'with valid input' do
-      let(:response) { validator.validate }
+      let(:response) { validator.validate(input) }
 
       it 'should return successful input validation' do
         expect(response.input_valid?).to eq true
@@ -17,7 +17,7 @@ describe InputValidator do
     end
 
     context 'with invalid input' do
-      let(:response) { validator.validate }
+      let(:response) { validator.validate(input) }
 
       context 'invalid number input' do
         context 'with invalid number character' do

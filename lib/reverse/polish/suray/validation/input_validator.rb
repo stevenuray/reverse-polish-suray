@@ -5,21 +5,21 @@ require 'reverse/polish/suray/validation/number_error'
 require 'bigdecimal'
 
 class InputValidator
-  def validate
-    validate_operator
-    validate_numbers
-    return InputValidation.new(@input, :success)
+  def validate(input)
+    validate_operator(input)
+    validate_numbers(input)
+    return InputValidation.new(input, :success)
   end
 
-  def validate_operator
-    operator = @input.split(RPNConfig.input_separator).last
+  def validate_operator(input)
+    operator = input.split(RPNConfig.input_separator).last
     unless RPNConfig.valid_operators.include? operator
       raise OperatorError.new("#{operator} is not a valid operator.")
     end
   end
 
-  def validate_numbers
-    numbers_strings = @input.split(RPNConfig.input_separator)
+  def validate_numbers(input)
+    numbers_strings = input.split(RPNConfig.input_separator)
     numbers_strings.pop
 
     if numbers_strings.count == 0
@@ -31,11 +31,5 @@ class InputValidator
     rescue StandardError
       raise NumberError.new("Invalid number!")
     end
-  end
-
-  private
-
-  def initialize(input)
-    @input = input
   end
 end

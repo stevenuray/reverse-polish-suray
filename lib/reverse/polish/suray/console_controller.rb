@@ -29,7 +29,7 @@ class ConsoleController
 
     #TODO consider putting this in another function
     begin
-      InputValidator.new(next_input).validate
+      InputValidator.new.validate(next_input)
     rescue StandardError => e
       @output.output_error(e)
       return
