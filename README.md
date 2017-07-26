@@ -49,6 +49,15 @@ Prerequisites:
 3. Enter the `/bin/` directory of this repo with a command line tool. 
 4. Enter `ruby rpn_suray` to run the program.
 
+## Configuration
+
+The following environment variables may be set by the user to override default settings:
+*  `RPN_INPUT_SEPARATOR` is the separator between numbers and operators. For example, changing it to `","` would permit this entry `1,2,+`. Default value is `" "`.
+*  `RPN_DECIMAL_PRECISION` is the maximum rounding precision for calculations. Default value is 10. 
+*  `RPN_EXIT_COMMANDS` is a comma separated list of valid exit commands for the program. Default value is `q,exit`.
+
+If you are using docker, remember that you need to pass in the environment variables to the container. An example: `docker run -it -e RPN_INPUT_SEPARATOR="," -e RPN_DECIMAL_PRECISION=5 -e RPN_EXIT_COMMANDS="q,quit,exit" stevenuray/reverse-polish-suray:latest`.
+
 # Developer Usage
 
 ## Running Tests
