@@ -1,8 +1,8 @@
-require 'reverse/polish/suray/output_source/output_source'
+require 'reverse/polish/suray/output_consumer/output_consumer'
 require 'reverse/polish/suray/rpn_config'
 
-class ConsoleOutputSource
-  include OutputSource
+class ConsoleOutputConsumer
+  include OutputConsumer
 
   ##
   # It is tempting to move this var to RPNConfig, but if users set it to a number larger

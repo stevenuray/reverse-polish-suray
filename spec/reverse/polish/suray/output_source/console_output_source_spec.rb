@@ -1,10 +1,10 @@
 require 'spec_helper'
-require 'reverse/polish/suray/output_source/console_output_source'
+require 'reverse/polish/suray/output_consumer/console_output_consumer'
 require 'reverse/polish/suray/rpn_config'
 require 'bigdecimal'
 
-describe ConsoleOutputSource do
-  let(:output) { ConsoleOutputSource.new }
+describe ConsoleOutputConsumer do
+  let(:output) { ConsoleOutputConsumer.new }
 
   describe '#output_result' do
     let(:test_result) { BigDecimal.new(3, 0) }
