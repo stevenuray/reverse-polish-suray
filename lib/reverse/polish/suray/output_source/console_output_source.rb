@@ -1,12 +1,25 @@
 require 'reverse/polish/suray/output_source/output_source'
+require 'reverse/polish/suray/rpn_config'
 
 class ConsoleOutputSource
   include OutputSource
 
+  ##
+  # It is tempting to move this var to RPNConfig, but if users set it to a number larger
+  # than the number of fake init messages, the program will infintely loop due to an until!
   FAKE_INIT_MESSAGES = 3
 
   def output_result(result)
-    STDOUT.puts("%f" % result)
+    precision = RPNConfig.decimal_precision
+
+    #TODO ternary here?
+    if result.to_i == result
+      STDOUT.puts(result.to_i)
+    else
+      rounded_result = result.round(precision)
+      #TODO clarify this
+      STDOUT.puts("%.#{ precision }g" % ("%.#{ precision }f" % rounded_result))
+    end
   end
 
   def output_error(error)
