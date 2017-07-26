@@ -6,14 +6,13 @@ Reverse Polish Calculator for On-Site
 # Overview
 
 # Technical Choices and Reasoning
-## Architectural
 
-### Language Choice
+## Language Choice
 Ruby was used for the following reasons:
 * Ruby was a shared language between myself and the On-Site development team. 
 * The project was intended to be completed quickly, and therefore Ruby's dynamic typing, minimal syntax, and overall friendliness were complelling advantages in this context compared to a language like Java. 
 
-### Operators as classes that include the Operator module
+## Operators as classes that include the Operator module
 Advantages:
 * Allows for additional operators by extension without modification.
 * Allows for non default Ruby operators like `!` for factorial. 
@@ -22,7 +21,6 @@ Advantages:
 Disadvantages:
 * Unncessary complexity for basic `+, -, *, /` operators, and additional default Ruby operators like `**, %`. 
 
-## Trade-Offs
 ## CircleCI
 CircleCI was used in this project for these reasons:
 * To automatically verify this project worked on machines other than my development machine. 
