@@ -1,11 +1,9 @@
 require 'reverse/polish/suray/validation/operator_exception'
-require 'bigdecimal'
-require 'pry'
 require 'reverse/polish/suray/validation/input_validation'
+require 'reverse/polish/suray/rpn_config'
+require 'bigdecimal'
 
 class InputValidator
-  #TODO consider moving this to a single point of configuration and referencing
-  SEPARATOR = ' '
   def validate
     validate_operator
     validate_numbers
@@ -13,18 +11,14 @@ class InputValidator
   end
 
   def validate_operator
-    #TODO consider automatically generating this from the location in this application that specifies all valid operators
-    valid_operators = ['+', '-', '*', '/']
-    #TODO pull separator from a single definition and reference
-    operator = @input.split(' ').last
-    unless valid_operators.include? operator
+    operator = @input.split(RPNConfig.input_separator).last
+    unless RPNConfig.valid_operators.include? operator
       raise OperatorException.new("#{operator} is not a valid operator.")
     end
   end
 
   def validate_numbers
-    #TODO pull separator from a single definition and reference
-    numbers_strings = @input.split(SEPARATOR)
+    numbers_strings = @input.split(RPNConfig.input_separator)
     numbers_strings.pop
 
     #TODO reconsider decision to raise ArgumentError here instead of a custom exception

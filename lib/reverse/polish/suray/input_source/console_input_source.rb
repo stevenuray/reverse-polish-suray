@@ -1,10 +1,8 @@
 require 'reverse/polish/suray/input_source/input_source'
+require 'reverse/polish/suray/rpn_config'
 
 class ConsoleInputSource
   include InputSource
-
-  #TODO consider moving this to a single point of configuration and referencing
-  EXIT_COMMANDS = [ 'q' ]
 
   def read_next_input
     next_line = ''
@@ -16,7 +14,7 @@ class ConsoleInputSource
       next_line = :exit_command
     end
 
-    if EXIT_COMMANDS.include? next_line
+    if RPNConfig.exit_commands.include? next_line
       :exit_command
     else
       next_line
