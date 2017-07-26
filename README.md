@@ -42,6 +42,7 @@ Prerequisites:
 Prerequisites:
 * Ruby
 * Git
+* Bundler
 
 1. `git clone` this repository to an appropriate folder on your local machine.
 2. At the root of this repo's folder on your machine, `bundle install`. 
