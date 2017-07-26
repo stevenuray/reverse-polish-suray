@@ -1,11 +1,14 @@
 require 'spec_helper'
 require 'reverse/polish/suray/console_controller'
+require 'reverse/polish/suray/validation/input_validator'
+require 'reverse/polish/suray/validation/input_validation'
 require 'bigdecimal'
 
 describe ConsoleController do
   let(:input) { double("input") }
   let(:output) { double("output") }
-  let(:controller) { ConsoleController.new(input, output) }
+  let(:validator) { InputValidator.new }
+  let(:controller) { ConsoleController.new(input, output, validator) }
 
   describe '#process_next_input' do
     let(:next_input) { '1 2 +' }
@@ -39,32 +42,35 @@ describe ConsoleController do
       end
     end
 
-    context 'with partial input' do
-      context 'with invalid input' do
-        let(:next_input) { 'Seagull' }
+    context 'with error from validator' do
+      let(:validator) { double("validator") }
+      let(:validation) { InputValidation.new(next_input, NumberError) }
 
-        it 'should return error message' do
+      before(:each) do
+        allow(validator).to receive(:validate).and_return(validation)
+      end
+
+      context 'with number error' do
+        it 'should call output.output_error' do
+          expect(output).to receive(:output_error)
+          controller.process_next_input
+        end
+      end
+
+      context 'with operator error' do
+        let(:validation) { InputValidation.new(next_input, NumberError) }
+
+        it 'should call output.output_error' do
           expect(output).to receive(:output_error)
           controller.process_next_input
         end
       end
     end
 
-    context 'with complete input' do
-      context 'with valid input' do
-        it 'should call @output.output_result with the correct answer' do
-          expect(output).to receive(:output_result).with(BigDecimal.new(3))
-          controller.process_next_input
-        end
-      end
-
-      context 'with invalid input' do
-        let(:next_input) { '1 2 frog' }
-
-        it 'should call output_error on output with invalid input' do
-          expect(output).to receive(:output_error)
-          controller.process_next_input
-        end
+    context 'with valid input' do
+      it 'should call @output.output_result with the correct answer' do
+        expect(output).to receive(:output_result).with(BigDecimal.new(3))
+        controller.process_next_input
       end
     end
   end

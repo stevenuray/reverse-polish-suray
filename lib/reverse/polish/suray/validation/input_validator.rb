@@ -6,9 +6,15 @@ require 'bigdecimal'
 
 class InputValidator
   def validate(input)
-    validate_operator(input)
-    validate_numbers(input)
-    return InputValidation.new(input, :success)
+    begin
+      validate_operator(input)
+      validate_numbers(input)
+      response = :valid_input
+    rescue StandardError => e
+      response = e
+    end
+
+    return InputValidation.new(input, response)
   end
 
   def validate_operator(input)

@@ -27,11 +27,10 @@ class ConsoleController
       return :exit_command
     end
 
-    #TODO consider putting this in another function
-    begin
-      InputValidator.new.validate(next_input)
-    rescue StandardError => e
-      @output.output_error(e)
+    #TODO clean this up
+    validation = @validator.validate(next_input)
+    unless validation.response == :valid_input
+      @output.output_error(validation.response)
       return
     end
 
@@ -49,9 +48,10 @@ class ConsoleController
 
   private
 
-  def initialize(input, output)
+  def initialize(input, output, validator)
     @input = input
     @output = output
+    @validator = validator
   end
 
   def initial_messages

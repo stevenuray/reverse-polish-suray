@@ -9,22 +9,22 @@ describe InputValidator do
 
   describe '#validate' do
     context 'with valid input' do
-      let(:response) { validator.validate(input) }
+      let(:validation) { validator.validate(input) }
 
       it 'should return successful input validation' do
-        expect(response.input_valid?).to eq true
+        expect(validation.response).to eq :valid_input
       end
     end
 
     context 'with invalid input' do
-      let(:response) { validator.validate(input) }
+      let(:validation) { validator.validate(input) }
 
       context 'invalid number input' do
         context 'with invalid number character' do
           let(:input) { '? 2 +' }
 
           it 'returns invalid number' do
-            expect { response }.to raise_exception(NumberError)
+            expect(validation.response.class).to eq(NumberError)
           end
         end
 
@@ -32,7 +32,7 @@ describe InputValidator do
           let(:input) { ' +' }
 
           it 'returns invalid number' do
-            expect { response }.to raise_exception(ArgumentError)
+            expect(validation.response.class).to eq(ArgumentError)
           end
         end
       end
@@ -42,7 +42,7 @@ describe InputValidator do
           let(:input) { '1 2 c' }
 
           it 'throws OperatorException' do
-            expect { response }.to raise_exception(OperatorError, "c is not a valid operator.")
+            expect(validation.response.class).to eq(OperatorError)
           end
         end
 
@@ -50,7 +50,7 @@ describe InputValidator do
           let(:input) { '1 2 ' }
 
           it 'throws OperatorException' do
-            expect { response }.to raise_exception(OperatorError)
+            expect(validation.response.class).to eq(OperatorError)
           end
         end
       end
@@ -60,14 +60,14 @@ describe InputValidator do
           let(:input) { '12+' }
 
           it 'should return something' do
-            expect { response }.to raise_exception(OperatorError)
+            expect(validation.response.class).to eq(OperatorError)
           end
         end
 
         context 'with numbers after operator' do
           let(:input) { '1 2 + 1' }
           it 'should return something' do
-            expect { response }.to raise_exception(OperatorError)
+            expect(validation.response.class).to eq(OperatorError)
           end
         end
       end
