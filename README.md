@@ -30,8 +30,22 @@ This decision has the following disadvantages:
 
 # End-User Usage
 
-## Install
+## Install and Run
 
-## Usage
+### Docker
+Prerequisites:
+* Docker
+
+1. Enter `docker run -it stevenuray/reverse-polish-suray:latest` into a command line terminal.
+
+### Without Docker
+Prerequisites:
+* Ruby
+* Git
+
+1. `git clone` this repository to an appropriate folder on your local machine.
+2. At the root of this repo's folder on your machine, `bundle install`. 
+3. Enter the `/bin/` directory of this repo with a command line tool. 
+4. Enter `ruby rpn_suray` to run the program.
 
 # Development Environment Setup
