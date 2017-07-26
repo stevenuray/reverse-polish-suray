@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'reverse/polish/suray/validation/input_validator'
-require 'reverse/polish/suray/validation/operator_exception'
+require 'reverse/polish/suray/validation/operator_error'
+require 'reverse/polish/suray/validation/number_error'
 
 describe InputValidator do
   let(:input) { '1 2 +' }
@@ -23,7 +24,7 @@ describe InputValidator do
           let(:input) { '? 2 +' }
 
           it 'returns invalid number' do
-            expect { response }.to raise_exception(ArgumentError)
+            expect { response }.to raise_exception(NumberError)
           end
         end
 
@@ -41,7 +42,7 @@ describe InputValidator do
           let(:input) { '1 2 c' }
 
           it 'throws OperatorException' do
-            expect { response }.to raise_exception(OperatorException, "c is not a valid operator.")
+            expect { response }.to raise_exception(OperatorError, "c is not a valid operator.")
           end
         end
 
@@ -49,7 +50,7 @@ describe InputValidator do
           let(:input) { '1 2 ' }
 
           it 'throws OperatorException' do
-            expect { response }.to raise_exception(OperatorException)
+            expect { response }.to raise_exception(OperatorError)
           end
         end
       end
@@ -59,14 +60,14 @@ describe InputValidator do
           let(:input) { '12+' }
 
           it 'should return something' do
-            expect { response }.to raise_exception(OperatorException)
+            expect { response }.to raise_exception(OperatorError)
           end
         end
 
         context 'with numbers after operator' do
           let(:input) { '1 2 + 1' }
           it 'should return something' do
-            expect { response }.to raise_exception(OperatorException)
+            expect { response }.to raise_exception(OperatorError)
           end
         end
       end

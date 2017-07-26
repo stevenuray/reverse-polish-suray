@@ -1,0 +1,2 @@
+class OperatorError < StandardError
+end

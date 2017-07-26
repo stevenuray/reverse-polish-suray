@@ -1,0 +1,2 @@
+class NumberError < StandardError
+end

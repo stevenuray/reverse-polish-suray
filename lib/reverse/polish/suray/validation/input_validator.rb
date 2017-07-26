@@ -1,6 +1,7 @@
-require 'reverse/polish/suray/validation/operator_exception'
+require 'reverse/polish/suray/validation/operator_error'
 require 'reverse/polish/suray/validation/input_validation'
 require 'reverse/polish/suray/rpn_config'
+require 'reverse/polish/suray/validation/number_error'
 require 'bigdecimal'
 
 class InputValidator
@@ -13,7 +14,7 @@ class InputValidator
   def validate_operator
     operator = @input.split(RPNConfig.input_separator).last
     unless RPNConfig.valid_operators.include? operator
-      raise OperatorException.new("#{operator} is not a valid operator.")
+      raise OperatorError.new("#{operator} is not a valid operator.")
     end
   end
 
@@ -26,8 +27,12 @@ class InputValidator
       raise ArgumentError.new("No numbers provided.")
     end
 
-    #TODO deal with exceptions that will be thrown if words are input to the program
-    numbers_strings.each { |n| Float(n) }
+    begin
+      #TODO deal with exceptions that will be thrown if words are input to the program
+      numbers_strings.map! { |n| Float(n) }
+    rescue StandardError
+      raise NumberError.new("Invalid number!")
+    end
   end
 
   private
