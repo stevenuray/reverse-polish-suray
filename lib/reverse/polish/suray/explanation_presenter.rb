@@ -17,7 +17,6 @@ class ExplanationPresenter
       'Thanks for using Steven Uray\'s Reverse Polish Calculator!'
     end
 
-    #TODO consider removing
     def fake_initialization_messages
       ['Building additional pylons...',
        'Performing rain dance...',
@@ -28,7 +27,8 @@ class ExplanationPresenter
        'Hiding from Lumbergh...',
        'Filling out TPS report ASAP...',
        'Over-promising, under-delivering...',
-       'Creating ICO on Ethereum, receiving millions of dollars...']
+       'Creating ICO on Ethereum, receiving millions of dollars...',
+       'Finding new and creative ways to name drop Haskell in casual conversation...']
     end
 
     def random_fake_initialization_message

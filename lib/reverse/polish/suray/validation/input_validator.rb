@@ -22,13 +22,11 @@ class InputValidator
     numbers_strings = @input.split(RPNConfig.input_separator)
     numbers_strings.pop
 
-    #TODO reconsider decision to raise ArgumentError here instead of a custom exception
     if numbers_strings.count == 0
       raise ArgumentError.new("No numbers provided.")
     end
 
     begin
-      #TODO deal with exceptions that will be thrown if words are input to the program
       numbers_strings.map! { |n| Float(n) }
     rescue StandardError
       raise NumberError.new("Invalid number!")
